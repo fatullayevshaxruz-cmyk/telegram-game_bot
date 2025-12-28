@@ -14,29 +14,6 @@ const openai = new OpenAI({
 
 const obj = {};
 
-bot.on("message", async (msg) => {
-  const chatId = msg.chat.id;
-  const userText = msg.text;
-
-  if (!userText) return;
-
-  try {
-    const response = await openai.chat.completions.create({
-      model: "gpt-4.1-mini",
-      messages: [
-        { role: "system", content: "You are a helpful assistant." },
-        { role: "user", content: userText }
-      ]
-    });
-
-    const aiReply = response.choices[0].message.content;
-    await bot.sendMessage(chatId, aiReply);
-
-  } catch (err) {
-    console.error(err);
-    bot.sendMessage(chatId, "Xatolik bo'ldi, keyinroq urinib ko'ring.");
-  }
-});
 
 const startGame = async chatId => {
      await bot.sendMessage(chatId,
@@ -135,15 +112,4 @@ const bootstrap = () => {
 };
 console.log("Bot tayyor");
 
-
-    const express = require('express');
-
-        app.get('/', (req, res) => {
-        res.send('Bot ishlayapti');
-        });
-
-        const PORT = process.env.PORT || 3000;
-        app.listen(PORT, () => {
-        console.log('Server portda ishlayapti:', PORT);
-        });
 bootstrap();
