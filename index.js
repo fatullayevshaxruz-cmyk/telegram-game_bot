@@ -104,5 +104,5 @@ const bootstrap = () => {
 
     })
 };
-
+console.log("Bot tayyor");
 bootstrap();
