@@ -1,20 +1,18 @@
-const TelegramBot = require('node-telegram-bot-api');
 require("dotenv").config();
-require("dotenv").config()
-console.log(process.env.OPENAI_API_KEY)
+const TelegramBot = require('node-telegram-bot-api');
+    const { default: OpenAI } = require('openai');
+    const app = express();
 
 const {gameOptions, againOptions} = require('./options.js')
 
 const bot = new TelegramBot(process.env.BOT_TOKEN, {polling: true});
 
-
-const obj = {};
-
-const OpenAI = require("openai");
-
 const openai = new OpenAI({
     apiKey: process.env.OPENAI_API_KEY
 });
+
+
+const obj = {};
 
 bot.on("message", async (msg) => {
   const chatId = msg.chat.id;
@@ -139,7 +137,6 @@ console.log("Bot tayyor");
 
 
     const express = require('express');
-    const app = express();
 
         app.get('/', (req, res) => {
         res.send('Bot ishlayapti');
