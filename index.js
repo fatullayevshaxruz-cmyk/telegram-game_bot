@@ -1,5 +1,7 @@
 const TelegramBot = require('node-telegram-bot-api');
 require("dotenv").config();
+require("dotenv").config()
+console.log(process.env.OPENAI_API_KEY)
 
 const {gameOptions, againOptions} = require('./options.js')
 
@@ -8,6 +10,35 @@ const bot = new TelegramBot(process.env.BOT_TOKEN, {polling: true});
 
 const obj = {};
 
+const OpenAI = require("openai");
+
+const openai = new OpenAI({
+    apiKey: process.env.OPENAI_API_KEY
+});
+
+bot.on("message", async (msg) => {
+  const chatId = msg.chat.id;
+  const userText = msg.text;
+
+  if (!userText) return;
+
+  try {
+    const response = await openai.chat.completions.create({
+      model: "gpt-4.1-mini",
+      messages: [
+        { role: "system", content: "You are a helpful assistant." },
+        { role: "user", content: userText }
+      ]
+    });
+
+    const aiReply = response.choices[0].message.content;
+    await bot.sendMessage(chatId, aiReply);
+
+  } catch (err) {
+    console.error(err);
+    bot.sendMessage(chatId, "Xatolik bo'ldi, keyinroq urinib ko'ring.");
+  }
+});
 
 const startGame = async chatId => {
      await bot.sendMessage(chatId,
