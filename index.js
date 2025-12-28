@@ -105,15 +105,17 @@ const bootstrap = () => {
     })
 };
 console.log("Bot tayyor");
-const express = require('express');
-const app = express();
 
-app.get('/', (req, res) => {
-  res.send('Bot ishlayapti');
-});
 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log('Server portda ishlayapti:', PORT);
-});
+    const express = require('express');
+    const app = express();
+
+        app.get('/', (req, res) => {
+        res.send('Bot ishlayapti');
+        });
+
+        const PORT = process.env.PORT || 3000;
+        app.listen(PORT, () => {
+        console.log('Server portda ishlayapti:', PORT);
+        });
 bootstrap();
