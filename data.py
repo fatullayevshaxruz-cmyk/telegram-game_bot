@@ -346,7 +346,7 @@ MATCHES = [
     # APL
     {
         "id": 4,
-        "league_id": "apl",
+        "league_id": "epl",
         "league": "Premier Liga",
         "league_ru": "Премьер-лига",
         "home_team": "Arsenal",
@@ -377,7 +377,7 @@ MATCHES = [
     },
     {
         "id": 5,
-        "league_id": "apl",
+        "league_id": "epl",
         "league": "Premier Liga",
         "league_ru": "Премьер-лига",
         "home_team": "Liverpool",
