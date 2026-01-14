@@ -115,43 +115,89 @@ PLAYERS = {
 }
 
 # =============================
-# LIGALAR (Leagues)
+# LIGALAR (Leagues) - Kengaytirilgan
 # =============================
 LEAGUES = {
     "uz_super": {
         "id": "uz_super",
         "name": "O'zbekiston Superligasi",
         "name_ru": "Суперлига Узбекистана",
-        "country": "🇺🇿 O'zbekiston",
-        "logo": "https://upload.wikimedia.org/wikipedia/en/d/d3/Uzbekistan_Super_League_logo.png"
+        "name_en": "Uzbekistan Super League",
+        "country": "🇺🇿",
+        "country_name": "O'zbekiston",
+        "logo": "🇺🇿"
     },
     "uz_cup": {
         "id": "uz_cup",
         "name": "O'zbekiston Kubogi",
         "name_ru": "Кубок Узбекистана",
-        "country": "🇺🇿 O'zbekiston",
-        "logo": "https://upload.wikimedia.org/wikipedia/en/d/d3/Uzbekistan_Super_League_logo.png"
+        "name_en": "Uzbekistan Cup",
+        "country": "🇺🇿",
+        "country_name": "O'zbekiston",
+        "logo": "🏆"
     },
-    "apl": {
-        "id": "apl",
+    "epl": {
+        "id": "epl",
         "name": "Premier Liga",
         "name_ru": "Премьер-лига",
-        "country": "🏴󠁧󠁢󠁥󠁮󠁧󠁿 Angliya",
-        "logo": "https://upload.wikimedia.org/wikipedia/en/f/f2/Premier_League_Logo.svg"
+        "name_en": "Premier League",
+        "country": "🏴󠁧󠁢󠁥󠁮󠁧󠁿",
+        "country_name": "England",
+        "logo": "🏴󠁧󠁢󠁥󠁮󠁧󠁿"
     },
     "laliga": {
         "id": "laliga",
         "name": "La Liga",
         "name_ru": "Ла Лига",
-        "country": "🇪🇸 Ispaniya",
-        "logo": "https://upload.wikimedia.org/wikipedia/commons/5/54/LaLiga_EA_Sports_2023_Vertical_Logo.svg"
+        "name_en": "La Liga",
+        "country": "🇪🇸",
+        "country_name": "Spain",
+        "logo": "🇪🇸"
+    },
+    "seriea": {
+        "id": "seriea",
+        "name": "Serie A",
+        "name_ru": "Серия А",
+        "name_en": "Serie A",
+        "country": "🇮🇹",
+        "country_name": "Italy",
+        "logo": "🇮🇹"
+    },
+    "bundesliga": {
+        "id": "bundesliga",
+        "name": "Bundesliga",
+        "name_ru": "Бундеслига",
+        "name_en": "Bundesliga",
+        "country": "🇩🇪",
+        "country_name": "Germany",
+        "logo": "🇩🇪"
+    },
+    "ligue1": {
+        "id": "ligue1",
+        "name": "Ligue 1",
+        "name_ru": "Лига 1",
+        "name_en": "Ligue 1",
+        "country": "🇫🇷",
+        "country_name": "France",
+        "logo": "🇫🇷"
     },
     "ucl": {
         "id": "ucl",
         "name": "UEFA Chempionlar Ligasi",
         "name_ru": "Лига Чемпионов УЕФА",
-        "country": "🇪🇺 Yevropa",
-        "logo": "https://upload.wikimedia.org/wikipedia/en/b/bf/UEFA_Champions_League_logo_2.svg"
+        "name_en": "UEFA Champions League",
+        "country": "🇪🇺",
+        "country_name": "Europe",
+        "logo": "⭐"
+    },
+    "uel": {
+        "id": "uel",
+        "name": "UEFA Yevropa Ligasi",
+        "name_ru": "Лига Европы УЕФА",
+        "name_en": "UEFA Europa League",
+        "country": "🇪🇺",
+        "country_name": "Europe",
+        "logo": "🔶"
     }
 }
 
@@ -499,7 +545,7 @@ NEWS = [
 ]
 
 # =============================
-# TARJIMALAR (Translations)
+# TARJIMALAR (Translations) - 3 til
 # =============================
 TRANSLATIONS = {
     "uz": {
@@ -540,7 +586,9 @@ TRANSLATIONS = {
         "read_more": "Batafsil",
         "source": "Manba",
         "no_matches": "Bugun o'yin yo'q",
-        "all_leagues": "Barcha ligalar"
+        "all_leagues": "Barcha ligalar",
+        "search": "Qidirish",
+        "settings": "Sozlamalar"
     },
     "ru": {
         "matches": "Матчи",
@@ -580,6 +628,51 @@ TRANSLATIONS = {
         "read_more": "Подробнее",
         "source": "Источник",
         "no_matches": "Сегодня нет матчей",
-        "all_leagues": "Все лиги"
+        "all_leagues": "Все лиги",
+        "search": "Поиск",
+        "settings": "Настройки"
+    },
+    "en": {
+        "matches": "Matches",
+        "news": "News",
+        "leagues": "Leagues",
+        "following": "Following",
+        "live": "LIVE",
+        "today": "Today",
+        "tomorrow": "Tomorrow",
+        "yesterday": "Yesterday",
+        "finished": "FT",
+        "scheduled": "Scheduled",
+        "watch_live": "📺 Watch Live",
+        "lineup": "Lineup",
+        "stats": "Stats",
+        "possession": "Possession",
+        "shots": "Shots",
+        "shots_on_target": "Shots on Target",
+        "corners": "Corners",
+        "fouls": "Fouls",
+        "standings": "Standings",
+        "pos": "#",
+        "team": "Team",
+        "played": "P",
+        "won": "W",
+        "draw": "D",
+        "lost": "L",
+        "gd": "GD",
+        "points": "Pts",
+        "player_profile": "Player Profile",
+        "age": "Age",
+        "nationality": "Nationality",
+        "goals": "Goals",
+        "assists": "Assists",
+        "matches_played": "Matches Played",
+        "close": "Close",
+        "read_more": "Read More",
+        "source": "Source",
+        "no_matches": "No matches today",
+        "all_leagues": "All Leagues",
+        "search": "Search",
+        "settings": "Settings"
     }
 }
+

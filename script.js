@@ -141,7 +141,10 @@ function renderMatches() {
     let html = '';
     for (const [leagueId, matches] of Object.entries(grouped)) {
         const firstMatch = matches[0];
-        const leagueName = currentLang === 'ru' ? firstMatch.league_ru : firstMatch.league;
+        // 3 til uchun league name
+        let leagueName = firstMatch.league;
+        if (currentLang === 'ru') leagueName = firstMatch.league_ru || firstMatch.league;
+        else if (currentLang === 'en') leagueName = firstMatch.league_en || firstMatch.league;
 
         html += `
             <div class="league-group">
@@ -161,8 +164,13 @@ function renderMatches() {
 }
 
 function renderMatchCard(match) {
-    const homeTeam = currentLang === 'ru' ? match.home_team_ru : match.home_team;
-    const awayTeam = currentLang === 'ru' ? match.away_team_ru : match.away_team;
+    // 3 til uchun team names
+    let homeTeam = match.home_team;
+    let awayTeam = match.away_team;
+    if (currentLang === 'ru') {
+        homeTeam = match.home_team_ru || match.home_team;
+        awayTeam = match.away_team_ru || match.away_team;
+    }
     const localTime = convertToLocalTime(match.datetime_utc);
 
     let timeDisplay = '';
@@ -211,8 +219,16 @@ function renderNews() {
     if (!allNews.length) return;
 
     let html = allNews.map(news => {
-        const title = currentLang === 'ru' ? news.title_ru : news.title;
-        const summary = currentLang === 'ru' ? news.summary_ru : news.summary;
+        // 3 til uchun news
+        let title = news.title;
+        let summary = news.summary;
+        if (currentLang === 'ru') {
+            title = news.title_ru || news.title;
+            summary = news.summary_ru || news.summary;
+        } else if (currentLang === 'en') {
+            title = news.title_en || news.title;
+            summary = news.summary_en || news.summary;
+        }
         const timeAgo = getTimeAgo(news.datetime_utc);
 
         return `
@@ -238,7 +254,10 @@ function renderLeagues() {
     if (!allLeagues.length) return;
 
     let html = allLeagues.map(league => {
-        const name = currentLang === 'ru' ? league.name_ru : league.name;
+        // 3 til uchun league name
+        let name = league.name;
+        if (currentLang === 'ru') name = league.name_ru || league.name;
+        else if (currentLang === 'en') name = league.name_en || league.name;
 
         return `
             <div class="league-card" onclick="openStandingsModal('${league.id}')">
@@ -726,9 +745,20 @@ function updateUI() {
     document.getElementById('todayBtn').textContent = translations.today || 'Bugun';
     document.getElementById('tomorrowBtn').textContent = translations.tomorrow || 'Ertaga';
 
-    // Update following tab
-    document.getElementById('followingTitle').textContent = currentLang === 'ru' ? 'Ваши избранные команды' : 'Sevimli jamoalaringiz';
-    document.getElementById('followingDesc').textContent = currentLang === 'ru' ? 'Пока ничего не выбрано' : 'Hozircha hech narsa tanlanmagan';
+    // Update following tab - 3 til uchun
+    let followTitle = 'Sevimli jamoalaringiz';
+    let followDesc = 'Hozircha hech narsa tanlanmagan';
+
+    if (currentLang === 'ru') {
+        followTitle = 'Ваши избранные команды';
+        followDesc = 'Пока ничего не выбрано';
+    } else if (currentLang === 'en') {
+        followTitle = 'Your favorite teams';
+        followDesc = 'Nothing selected yet';
+    }
+
+    document.getElementById('followingTitle').textContent = followTitle;
+    document.getElementById('followingDesc').textContent = followDesc;
 }
 
 // =============================
@@ -766,6 +796,11 @@ function getTimeAgo(utcString) {
         if (diffHours < 24) return `${diffHours} ч. назад`;
         if (diffDays === 1) return 'Вчера';
         return `${diffDays} дн. назад`;
+    } else if (currentLang === 'en') {
+        if (diffHours < 1) return 'Just now';
+        if (diffHours < 24) return `${diffHours}h ago`;
+        if (diffDays === 1) return 'Yesterday';
+        return `${diffDays}d ago`;
     } else {
         if (diffHours < 1) return 'Hozirgina';
         if (diffHours < 24) return `${diffHours} soat oldin`;
