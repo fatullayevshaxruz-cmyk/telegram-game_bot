@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>FotMob - Futbol Yangiliklari</title>
+    <meta name="description" content="Futbol o'yinlari, yangiliklar va ligalar - barchasi bir joyda">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+    <!-- HEADER -->
+    <header class="header">
+        <div class="header-content">
+            <h1 class="logo">⚽ FotMob</h1>
+            <div class="header-actions">
+                <button class="icon-btn" id="searchBtn">🔍</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+        <!-- MATCHES TAB -->
+        <section id="matchesTab" class="tab-content active">
+            <div class="date-selector">
+                <button class="date-btn" data-date="yesterday" id="yesterdayBtn">Kecha</button>
+                <button class="date-btn active" data-date="today" id="todayBtn">Bugun</button>
+                <button class="date-btn" data-date="tomorrow" id="tomorrowBtn">Ertaga</button>
+            </div>
+            <div id="matchesList" class="matches-list">
+                <!-- O'yinlar shu yerda render bo'ladi -->
+            </div>
+        </section>
+
+        <!-- NEWS TAB -->
+        <section id="newsTab" class="tab-content">
+            <div id="newsList" class="news-list">
+                <!-- Yangiliklar shu yerda render bo'ladi -->
+            </div>
+        </section>
+
+        <!-- LEAGUES TAB -->
+        <section id="leaguesTab" class="tab-content">
+            <div id="leaguesList" class="leagues-list">
+                <!-- Ligalar shu yerda render bo'ladi -->
+            </div>
+        </section>
+
+        <!-- FOLLOWING TAB -->
+        <section id="followingTab" class="tab-content">
+            <div class="empty-state">
+                <span class="empty-icon">❤️</span>
+                <h3 id="followingTitle">Sevimli jamoalaringiz</h3>
+                <p id="followingDesc">Hozircha hech narsa tanlanmagan</p>
+            </div>
+        </section>
+    </main>
+
+    <!-- MATCH DETAIL MODAL -->
+    <div id="matchModal" class="modal">
+        <div class="modal-content match-detail">
+            <button class="modal-close" onclick="closeMatchModal()">✕</button>
+            <div id="matchDetailContent">
+                <!-- O'yin tafsilotlari shu yerda -->
+            </div>
+        </div>
+    </div>
+
+    <!-- PLAYER PROFILE MODAL -->
+    <div id="playerModal" class="modal">
+        <div class="modal-content player-profile">
+            <button class="modal-close" onclick="closePlayerModal()">✕</button>
+            <div id="playerProfileContent">
+                <!-- O'yinchi profili shu yerda -->
+            </div>
+        </div>
+    </div>
+
+    <!-- NEWS DETAIL MODAL -->
+    <div id="newsModal" class="modal">
+        <div class="modal-content news-detail">
+            <button class="modal-close" onclick="closeNewsModal()">✕</button>
+            <div id="newsDetailContent">
+                <!-- Yangilik tafsilotlari shu yerda -->
+            </div>
+        </div>
+    </div>
+
+    <!-- STANDINGS MODAL -->
+    <div id="standingsModal" class="modal">
+        <div class="modal-content standings-modal">
+            <button class="modal-close" onclick="closeStandingsModal()">✕</button>
+            <div id="standingsContent">
+                <!-- Jadval shu yerda -->
+            </div>
+        </div>
+    </div>
+
+    <!-- BOTTOM NAVIGATION -->
+    <nav class="bottom-nav">
+        <button class="nav-item active" data-tab="matches" id="navMatches">
+            <span class="nav-icon">📅</span>
+            <span class="nav-text">O'yinlar</span>
+        </button>
+        <button class="nav-item" data-tab="news" id="navNews">
+            <span class="nav-icon">📰</span>
+            <span class="nav-text">Yangiliklar</span>
+        </button>
+        <button class="nav-item" data-tab="leagues" id="navLeagues">
+            <span class="nav-icon">🏆</span>
+            <span class="nav-text">Ligalar</span>
+        </button>
+        <button class="nav-item" data-tab="following" id="navFollowing">
+            <span class="nav-icon">❤️</span>
+            <span class="nav-text">Sevimli</span>
+        </button>
+    </nav>
+
+    <script src="script.js"></script>
+</body>
+</html>
